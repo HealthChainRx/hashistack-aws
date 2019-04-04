@@ -161,3 +161,13 @@ variable "tags_list" {
   type        = "list"
   default     = []
 }
+
+variable "root_block_type" {
+  description = "Optional root_block_device.type"
+  default     = "gp2"
+}
+
+variable "root_block_size" {
+  description = "Optional root_block_device.size"
+  default     = "8"
+}

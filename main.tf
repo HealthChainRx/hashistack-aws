@@ -86,6 +86,11 @@ resource "aws_launch_configuration" "hashistack" {
   user_data                   = "${data.template_file.hashistack_init.rendered}"
   key_name                    = "${var.ssh_key_name}"
 
+  root_block_device {
+    volume_type               = "${var.root_block_type}"
+    volume_size               = "${var.root_block_size}"
+  }
+
   security_groups = [
     "${module.consul_server_sg.consul_server_sg_id}",
     "${module.vault_server_sg.vault_server_sg_id}",
