@@ -171,3 +171,8 @@ variable "root_block_size" {
   description = "Optional root_block_device.size"
   default     = "8"
 }
+
+variable "root_block_delete_on_termination" {
+  description = "Optional root_block_device.delete_on_termination"
+  default     = true
+}

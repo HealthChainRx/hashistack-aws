@@ -89,6 +89,7 @@ resource "aws_launch_configuration" "hashistack" {
   root_block_device {
     volume_type               = "${var.root_block_type}"
     volume_size               = "${var.root_block_size}"
+    delete_on_termination     = "${var.root_block_delete_on_termination}"
   }
 
   security_groups = [
