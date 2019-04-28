@@ -92,11 +92,15 @@ resource "aws_launch_configuration" "hashistack" {
     delete_on_termination     = "${var.root_block_delete_on_termination}"
   }
 
-  security_groups = [
-    "${module.consul_server_sg.consul_server_sg_id}",
-    "${module.vault_server_sg.vault_server_sg_id}",
-    "${module.nomad_server_sg.nomad_server_sg_id}",
-  ]
+
+  security_groups = ["${compact(concat(
+    list(
+      module.consul_server_sg.consul_server_sg_id,
+      module.vault_server_sg.vault_server_sg_id,
+      module.nomad_server_sg.nomad_server_sg_id,
+    ),
+    var.hashistack_security_groups
+  ))}"]
 
   lifecycle {
     create_before_destroy = true

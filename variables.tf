@@ -176,3 +176,8 @@ variable "root_block_delete_on_termination" {
   description = "Optional root_block_device.delete_on_termination"
   default     = true
 }
+
+variable "hashistack_security_groups" {
+  description = "Additional Security Groups to AWS Launch Configuration"
+  default     = ""
+}
