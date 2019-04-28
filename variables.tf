@@ -179,5 +179,6 @@ variable "root_block_delete_on_termination" {
 
 variable "hashistack_security_groups" {
   description = "Additional Security Groups to AWS Launch Configuration"
-  default     = ""
+  type        = "list"
+  default     = []
 }
